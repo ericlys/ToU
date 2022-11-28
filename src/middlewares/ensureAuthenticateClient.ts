@@ -21,7 +21,7 @@ export async function ensureAuthenticateClient(
   try {
     const { sub } = verify(
       token,
-      process.env.SECRET_KEY!
+      process.env.SECRET_KEY || 'default'
     ) as IPayload;
 
     request.id_client = sub;

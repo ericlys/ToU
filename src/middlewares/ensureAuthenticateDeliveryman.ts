@@ -21,7 +21,7 @@ export async function ensureAuthenticateDeliveryman(
   try {
     const { sub } = verify(
       token,
-      process.env.SECRET_KEY_DELIVERYMAN!
+      process.env.SECRET_KEY_DELIVERYMAN || 'default'
     ) as IPayload;
 
     request.id_deliveryman = sub;
